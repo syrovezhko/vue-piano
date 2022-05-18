@@ -8,37 +8,43 @@
           <img src="./../assets/control.png" alt="" class="control-img">
         </div>
         <div class="col col-voluem">
-          <div class="graphic-block_voluem">
-            <div class="dots"></div>
-            <p class="title-btn"></p>
+          <div class="graphic-block graphic-block_voluem">
+            <div class="dots">
+              <span class="dot-active dot"></span>
+              <span class="dot-active dot"></span>
+              <span class="dot-active dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <p class="title-btn">Voluem</p>
             <div class="bar"></div>
           </div>
-          <div class="btn-block_voluem">
+          <div class="btn-block btn-block_voluem">
             <img src="./../assets/control.png" alt="" class="control-img">
             <img src="./../assets/control.png" alt="" class="control-img">
           </div>
         </div>
         <div class="col col-semple">
-          <div class="graphic-block_semple">
-            <div class="title">
+          <div class="graphic-block graphic-block_semple">
+            <div class="semple-title">
               <span class="line"></span>
-              <p class="title-btn"></p>
+              <p class="title-btn">Tone</p>
               <span class="line"></span>
             </div>
-            <div class="title">
-              <p class="title-btn"></p>
-              <p class="title-btn"></p>
-              <p class="title-btn"></p>
+            <div class="semple-title_btn">
+              <p class="title-btn">Piano</p>
+              <p class="title-btn">D. Piano</p>
+              <p class="title-btn">Others</p>
             </div>
           </div>
-          <div class="btn-block_semple">
+          <div class="btn-block btn-block_semple">
             <img src="./../assets/control.png" alt="" class="control-img">
             <img src="./../assets/control.png" alt="" class="control-img">
             <img src="./../assets/control.png" alt="" class="control-img">
           </div>
         </div>
         <div class="col col-octave">
-          <div class="btn-block_octave">
+          <div class="btn-block btn-block_octave">
             <img src="./../assets/control.png" alt="" class="control-img">
             <img src="./../assets/control.png" alt="" class="control-img">
           </div>
@@ -49,8 +55,8 @@
         </div>
       </div>
       <div class="keyboard">
-        <div class="key key1">
-          <span class="key-black key1-black"></span>
+        <div class="key key1 pushed">
+          <span class="key-black key1-black pushed-black"></span>
         </div>
         <div class="key-small">
           <img src="./../assets/key-small.png" alt="" class="key-small_img">
@@ -59,7 +65,7 @@
           <span class="key-black key2-black_left"></span>
           <span class="key-black key2-black_right"></span>
         </div>
-        <div class="key-small">
+        <div class="key-small pushed-small">
           <img src="./../assets/key-small.png" alt="" class="key-small_img">
         </div>
         <div class="key key3">
@@ -132,25 +138,82 @@ export default {
     display: flex;
     align-self: center;
     height: 80px;
-    width: 225px;
     margin-top: 70px;
     margin-bottom: 30px;
-    border: 1px solid white;
+  }
+  .col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin: 0 5px 15px;
+  }
+  .power-img{
+    margin-bottom: 8px;
   }
   .control-img{
     width: 7px;
     height: 33px;
-    margin: 0 1px;
+    margin: 0 8px;
   }
   .power-img{
     width: 11px;
     height: 11px;
   }
-  .power-img path{
-    fill: white;
+  .btn-block{
+    display: flex;
+    justify-content: space-between;
   }
-  .col{
-    margin: 0 13px;
+  .dots{
+    display: flex;
+    justify-content: space-between;
+  }
+  .dot{
+    width: 4px;
+    height: 4px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 2px;
+  }
+  .dot-active{
+    background: white;
+  }
+  .title-btn{
+    color: white;
+    font-size: 6px;
+    margin: 0 2px;
+  }
+  .bar{
+    margin: 0;
+    background: white;
+    width: 100%;
+    height: 6px;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  .graphic-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+  .semple-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-top: 8px;
+  }
+  .line{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: white;
+  }
+  .semple-title_btn{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 8px;
   }
   .keyboard{
     display: flex;
@@ -168,6 +231,10 @@ export default {
     background-color: #ffffff;
     margin: 1px;
     margin-left: -20px;
+    border-radius: 0 0 5px 5px;
+  }
+  .key:hover{
+    background-image: linear-gradient(#ffffff, #deffbd);
   }
   .key1{
     margin: 1px;
@@ -203,8 +270,29 @@ export default {
     position: relative;
     margin-left: -20px;
   }
+  .key-small:hover{
+    background-image: linear-gradient(#ffffff, #deffbd);
+  }
+  .key-small:hover .key-small_img{
+    opacity: 0.9;
+  }
   .key-small_img{
     width: 100%;
     height: 100%;
+  }
+  .pushed {
+    opacity: 1;
+    padding: 2px;
+    background-image: linear-gradient(#ffffff, #b5ff78);
+  }
+  .pushed-black{
+    margin-right: -2px;
+    margin-top: -2px;
+  }
+  .pushed:hover {
+    background-image: linear-gradient(#ffffff, #b5ff78);
+  }
+  .pushed-small{
+    background-image: linear-gradient(black, #b5ff78);
   }
 </style>
