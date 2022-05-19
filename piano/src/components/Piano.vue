@@ -5,7 +5,8 @@
       <div class="controls">
         <div class="col col-power">
           <img src="./../assets/power-icon.png" alt="" class="power-img">
-          <img src="./../assets/control.png" alt="" class="control-img">
+          <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+          <div class="control-img control-img_active"></div>
         </div>
         <div class="col col-voluem">
           <div class="graphic-block graphic-block_voluem">
@@ -20,8 +21,10 @@
             <div class="bar"></div>
           </div>
           <div class="btn-block btn-block_voluem">
-            <img src="./../assets/control.png" alt="" class="control-img">
-            <img src="./../assets/control.png" alt="" class="control-img">
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
           </div>
         </div>
         <div class="col col-semple">
@@ -38,15 +41,20 @@
             </div>
           </div>
           <div class="btn-block btn-block_semple">
-            <img src="./../assets/control.png" alt="" class="control-img">
-            <img src="./../assets/control.png" alt="" class="control-img">
-            <img src="./../assets/control.png" alt="" class="control-img">
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
           </div>
         </div>
         <div class="col col-octave">
           <div class="btn-block btn-block_octave">
-            <img src="./../assets/control.png" alt="" class="control-img">
-            <img src="./../assets/control.png" alt="" class="control-img">
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
+            <!-- <img src="./../assets/control.png" alt="" class="control-img"> -->
+            <div class="control-img"></div>
           </div>
           <div class="arrows">
             <span class="arrow-left"></span>
@@ -96,6 +104,7 @@
         </div>
       </div>
     </div>
+    <a href="https://github.com/syrovezhko/vue-piano/tree/vuePiano">This project on GitHub</a>
   </div>
 </template>
 
@@ -114,8 +123,20 @@ export default {
 <style scoped>
   .container {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+  .container a {
+    margin-top: 5px;
+    font-size: 50px;
+    text-decoration: none;
+    color: #464646;
+    padding: 10px;
+  }
+  .container a:hover {
+    border-radius: 10px;
+    background-image: radial-gradient(#ffffff, #89d44e);
+   }
   .piano {
     display: flex;
     height: 565px;
@@ -152,14 +173,23 @@ export default {
     margin-bottom: 8px;
   }
   .control-img{
-    width: 7px;
-    height: 33px;
+    width: 6px;
+    height: 32px;
+    border-radius: 3px;
+    background-image: radial-gradient(white, #000000);
+    border: 1px solid #2c2c2c;
     margin: 0 8px;
+  }
+  .control-img:hover{
+    background-image: radial-gradient(#ffffff, #859576);
   }
   .power-img{
     width: 11px;
     height: 11px;
   }
+  .control-img_active{
+    background-image: radial-gradient(#ffffff, #89d44e);
+    }
   .btn-block{
     display: flex;
     justify-content: space-between;
@@ -205,7 +235,7 @@ export default {
   }
   .line{
     display: block;
-    width: 30px;
+    width: 25px;
     height: 2px;
     background: white;
   }
@@ -215,6 +245,25 @@ export default {
     flex-grow: 1;
     margin-bottom: 8px;
   }
+  .arrows{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: -14px;
+    margin-top: 8px;
+  }
+  .arrow-left{
+    background: white;
+    width: 6px;
+    height: 6px;
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  .arrow-right{
+    background: white;
+    width: 6px;
+    height: 6px;
+    clip-path: polygon(0% 0%, 100% 50%, 100% 50%, 0% 100%);
+    }
   .keyboard{
     display: flex;
     box-sizing: border-box;
